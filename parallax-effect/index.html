@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Parallax Example</title>
+</head>
+
+<body>
+    <section class="sc-imAxmJ fvCfQD">
+        <div class="sc-hPeUyl kuWZiW">
+            <h2 class="sc-iWadT dfxruE">Reach your goals with in-app features</h2>
+            <p class="sc-ZUflv fTrsWA">Take your training to new heights. Stay on track with your goals, discover new
+                classes and see yourself improve.</p>
+        </div>
+        <div class="sc-hqGPoI jxwgWH">
+            <ul class="sc-jbWsrJ lnOggf">
+                <li class="sc-fATqzn djpkPW" style="opacity: 1; transform: translate(0px, 0px) scale(1, 1);">
+                    <div class="sc-cAJUJo kCzYKr">
+                        <h3 class="sc-cmUJln fysNzH">DISCOVER CLASSES YOU'LL&nbsp;LOVE</h3>
+                        <div class="sc-gYtlsd ialGZh sc-fkyLDJ hKdXZx sc-iCwjlJ dTiYeB">
+                            <video muted autoplay="" loop="" playsinline="" class="sc-jUpvKA kjDFZa is-active">
+                                <source
+                                    src="https://videos.ctfassets.net/6jnflt57iyzx/2GvvC8QSe2hrDkS6M0NrPd/12db5b644970d995c0b387748a21022e/90026_AppWebsite_Discover_Featured_2020_0414_V07__4_.mp4">
+                            </video></div>
+                    </div>
+                </li>
+                <li class="sc-fATqzn djpkPW" style="opacity: 1; transform: translate(0px, 0px) scale(1, 1);">
+                    <div class="sc-cAJUJo Pcpnl">
+                        <h3 class="sc-cmUJln fysNzH">WORK OUT ALONGSIDE&nbsp;OTHERS</h3>
+                        <div class="sc-gYtlsd ialGZh sc-fkyLDJ hKdXZx sc-iCwjlJ dTiYeB">
+                            <video muted autoplay="" loop="" playsinline="" class="sc-jUpvKA kjDFZa is-active">
+                                <source
+                                    src="https://videos.ctfassets.net/6jnflt57iyzx/4IH7TQvwxMqZ9jQrHIuAkS/68153cbbcdc4589cdbe9e6a44bac5a64/90026_AppWebsite_Alongside_Featured_2020_0414_V06.mp4">
+                            </video></div>
+                    </div>
+                </li>
+                <li class="sc-fATqzn djpkPW" style="opacity: 1; transform: translate(0px, 0px) scale(1, 1);">
+                    <div class="sc-cAJUJo kCzYKr">
+                        <h3 class="sc-cmUJln fysNzH">TRACK YOUR PROGRESS WITH&nbsp;METRICS</h3>
+                        <div class="sc-gYtlsd ialGZh sc-fkyLDJ hKdXZx sc-iCwjlJ dTiYeB">
+                            <video muted autoplay="" loop="" playsinline="" class="sc-jUpvKA kjDFZa is-active">
+                                <source
+                                    src="https://videos.ctfassets.net/6jnflt57iyzx/47EOhz4SGwkCchI3Vigwyu/4464eb39ebd2a83107e5bc8a089d9efd/90026_AppWebsite_Metrics_Featured_2020_0414_V04.mp4">
+                            </video></div>
+                    </div>
+                </li>
+                <li class="sc-fATqzn djpkPW">
+                    <div class="sc-cAJUJo Pcpnl">
+                        <h3 class="sc-cmUJln fysNzH">CHALLENGE YOURSELF, EARN&nbsp;ACHIEVEMENTS</h3>
+                        <div class="sc-gYtlsd ialGZh sc-fkyLDJ hKdXZx sc-iCwjlJ dTiYeB">
+
+                            <video muted autoplay="" loop="" playsinline="" class="sc-jUpvKA kjDFZa is-active">
+                                <source
+                                    src="https://videos.ctfassets.net/6jnflt57iyzx/3ZWJoUP4hvKvkeUZLdW6bm/da451515c0c5124cd3f3125eac6ae4e5/90026_AppWebsite_Challenges_Featured_2020_0413_V08__2_.mp4">
+                            </video></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <p class="sc-esoVGF bQewms">In-app features vary by&nbsp;platform.</p>
+    </section>
+
+    <script src="http://code.jquery.com/jquery-1.11.1.js" crossorigin="anonymous"></script>
+
+    <script>
+        var diff1, diff2, diff3, diff4;
+		var rateOpacity = 0.75;
+		var rateScale = 0.6;
+		var rateFade = 0.2;
+		var fadeValue = true;
+        diff1 = $('.sc-fATqzn:nth-child(1)').outerHeight();
+        diff2 = $('.sc-fATqzn:nth-child(2)').outerHeight();
+        diff3 = $('.sc-fATqzn:nth-child(3)').outerHeight();
+        diff4 = $('.sc-fATqzn:nth-child(4)').outerHeight();
+		//console.log(diff1, diff2, diff3, diff4);
+		diff1 = diff2 = diff3 = diff4 = 227;
+        $(document).on('scroll', function (e) {
+		    var items = $('.sc-fATqzn');
+            var vids = $('.sc-jUpvKA');
+            var item_1_diff = Math.round((100 * (items[1].offsetTop - items[0].offsetTop)) / diff1);
+			//console.log(diff1 + " - " + item_1_diff);
+            if (item_1_diff < diff1 * rateOpacity) {
+                $('.sc-fATqzn:nth-child(1)').css('opacity', (item_1_diff / (diff1 * rateOpacity)).toFixed(1));
+                $('.sc-fATqzn:nth-child(2)').css('opacity', 1);
+				$('.sc-fATqzn:nth-child(3)').css('opacity', 1);
+				//console.log(3);
+				if (item_1_diff < diff1 * rateFade){
+					//console.log(1);
+					$('.sc-fATqzn:nth-child(1)').css('opacity', 0);
+				}
+            }else{
+				//console.log(2);
+				$('.sc-fATqzn:nth-child(1)').css('opacity', 1);
+			}
+			//return;
+            if (item_1_diff < diff1 * rateScale) {
+                $('.sc-fATqzn:nth-child(1)').css({
+                    'transform': 'translate(0px, ' + (item_1_diff / (diff1 * rateScale)) +
+                        'px' + ') scale(' + (((item_1_diff / (diff1 * rateScale)) / 20) + 0.95) + ')'
+                });
+            }
+			else {
+				$('.sc-fATqzn:nth-child(1)').css({
+                    'transform': 'translate(0px, 0px) scale(1)'  
+                });
+				$('.sc-fATqzn:nth-child(2)').css({
+                    'transform': 'translate(0px, 0px) scale(1)'  
+                });
+                       
+			}
+			
+			
+			
+			
+			
+			
+            var item_2_diff = Math.round((100 * (items[2].offsetTop - items[1].offsetTop)) / diff2);
+            if (item_2_diff < diff2 * rateOpacity) {
+                $('.sc-fATqzn:nth-child(2)').css('opacity', (item_2_diff / (diff2 * rateOpacity)).toFixed(1));
+				$('.sc-fATqzn:nth-child(3)').css('opacity', 1);
+				if (item_2_diff < diff2 * rateFade){
+					$('.sc-fATqzn:nth-child(2)').css('opacity', 0);
+				}
+            }
+            if (item_2_diff < diff2 * rateScale) {
+                $('.sc-fATqzn:nth-child(2)').css({
+                    'transform': 'translate(0px, ' + (item_2_diff / (diff2 * rateScale)) +
+                        'px' + ') scale(' + (((item_2_diff / (diff2 * rateScale)) / 20) + 0.95) + ')'
+                });
+            }
+			else {
+				$('.sc-fATqzn:nth-child(2)').css({
+                    'transform': 'translate(0px, 0px) scale(1)'  
+                });
+				$('.sc-fATqzn:nth-child(3)').css({
+                    'transform': 'translate(0px, 0px) scale(1)'  
+                });
+                       
+			}
+
+
+            var item_3_diff = Math.round((100 * (items[3].offsetTop - items[2].offsetTop)) / diff3);
+            if (item_3_diff < diff3 * rateOpacity) {
+                $('.sc-fATqzn:nth-child(3)').css('opacity', (item_3_diff / (diff3 * rateOpacity)).toFixed(1));
+				if (item_3_diff < diff3 * rateFade){
+					$('.sc-fATqzn:nth-child(3)').css('opacity', 0);
+				}
+            }
+            if (item_3_diff < diff3 * rateScale) {
+                $('.sc-fATqzn:nth-child(3)').css({
+                    'transform': 'translate(0px, ' + (item_3_diff / (diff3 * rateScale)) +
+                        'px' + ') scale(' + (((item_3_diff / (diff3 * rateScale)) / 20) + 0.95) + ')'
+                });
+            }else {
+				$('.sc-fATqzn:nth-child(3)').css({
+                    'transform': 'translate(0px, 0px) scale(1)'  
+                });
+				$('.sc-fATqzn:nth-child(4)').css({
+                    'transform': 'translate(0px, 0px) scale(1)'  
+                });
+                       
+			}
+            if (item_3_diff <= 0) {
+                $('.sc-hPeUyl').css({
+                    'position': "static"
+                });
+            } else {
+                $('.sc-hPeUyl').css({
+                    'position': "sticky"
+                });
+            }
+
+        });
+		
+		$(document).ready(function() {
+		scrollTop = $(window).scrollTop();
+		//$("html, body").animate({scrollTop: someValue});
+			$("html, body").animate({scrollTop: scrollTop + 1});
+			//$("html, body").animate({scrollTop: scrollTop});
+			//$(window).animate({scrollTop: scrollTop});
+		});
+		
+        var top_value = $('.sc-hPeUyl').outerHeight();
+        $('.lnOggf li.sc-fATqzn').css({
+            'top': top_value + "px"
+        });
+    </script>
+</body>
+
+</html>
