@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Parallax Example</title>
+</head>
+
+<body>
+    <section class="sc-imAxmJ slider-component">
+        <div class="sc-hPeUyl slider-title">
+            <h2 class="sc-iWadT header-title">Reach your goals with in-app features</h2>
+            <p class="sc-ZUflv header-content">Take your training to new heights. Stay on track with your goals,
+                discover new
+                classes and see yourself improve.</p>
+        </div>
+        <div class="slider-container">
+            <ul class="slider">
+                <li class="slide active" style="opacity: 1; transform: translate(0px, 0px) scale(1, 1);">
+                    <div class="under-li">
+                        <h3 class=" v-title">DISCOVER CLASSES YOU'LL&nbsp;LOVE</h3>
+                        <div class="video-container">
+                            <video muted autoplay="" loop="" playsinline="" class="sc-video video-content is-active">
+                                <source
+                                    src="https://videos.ctfassets.net/6jnflt57iyzx/2GvvC8QSe2hrDkS6M0NrPd/12db5b644970d995c0b387748a21022e/90026_AppWebsite_Discover_Featured_2020_0414_V07__4_.mp4">
+                            </video></div>
+                    </div>
+                </li>
+                <li class="slide" style="opacity: 1; transform: translate(0px, 0px) scale(1, 1);">
+                    <div class="under-li">
+                        <h3 class=" v-title">WORK OUT ALONGSIDE&nbsp;OTHERS</h3>
+                        <div class="video-container">
+                            <video muted autoplay="" loop="" playsinline="" class="sc-video video-content is-active">
+                                <source
+                                    src="https://videos.ctfassets.net/6jnflt57iyzx/4IH7TQvwxMqZ9jQrHIuAkS/68153cbbcdc4589cdbe9e6a44bac5a64/90026_AppWebsite_Alongside_Featured_2020_0414_V06.mp4">
+                            </video></div>
+                    </div>
+                </li>
+                <li class="slide" style="opacity: 1; transform: translate(0px, 0px) scale(1, 1);">
+                    <div class="under-li">
+                        <h3 class=" v-title">TRACK YOUR PROGRESS WITH&nbsp;METRICS</h3>
+                        <div class="video-container">
+                            <video muted autoplay="" loop="" playsinline="" class="sc-video video-content is-active">
+                                <source
+                                    src="https://videos.ctfassets.net/6jnflt57iyzx/47EOhz4SGwkCchI3Vigwyu/4464eb39ebd2a83107e5bc8a089d9efd/90026_AppWebsite_Metrics_Featured_2020_0414_V04.mp4">
+                            </video></div>
+                    </div>
+                </li>
+                <li class="slide">
+                    <div class="under-li">
+                        <h3 class=" v-title">CHALLENGE YOURSELF, EARN&nbsp;ACHIEVEMENTS</h3>
+                        <div class="video-container">
+
+                            <video muted autoplay="" loop="" playsinline="" class="sc-video video-content is-active">
+                                <source
+                                    src="https://videos.ctfassets.net/6jnflt57iyzx/3ZWJoUP4hvKvkeUZLdW6bm/da451515c0c5124cd3f3125eac6ae4e5/90026_AppWebsite_Challenges_Featured_2020_0413_V08__2_.mp4">
+                            </video></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <p class="slider-footer">In-app features vary by&nbsp;platform.</p>
+    </section>
+
+    <script src="http://code.jquery.com/jquery-1.11.1.js" crossorigin="anonymous"></script>
+
+    <script>
+        var rateOpacity = 0.9;
+        var rateScale = 0.6;
+        var rateFade = 0.2;
+        var fadeValue = true;
+        diff = 227;
+
+        // $(document).ready(function () {
+        $(document).on('scroll', function (e) {
+            var slide = $(".slide");
+            var sliderInner = $(".slider");
+            var childrenNo = sliderInner.children().length;
+            var currentSlide = $(".slide.active");
+
+            var vids = $('.sc-video');
+
+            for (i = 1; i < slide.length; i++) {
+
+
+                var slide_diff = Math.round((100 * (slide[i].offsetTop - slide[i - 1].offsetTop)) /
+                    diff);
+
+                if (slide_diff < diff * rateOpacity) {
+                    slide[i - 1].style.opacity = (slide_diff / (diff * rateOpacity)).toFixed(1);
+                    if (slide_diff < diff * rateFade) {
+                        slide[i - 1].style.opacity = 0;
+                    }
+                } else {
+                    slide[i - 1].style.opacity = 1;
+                }
+                // Transform
+                if (slide_diff < diff * rateScale) {
+                    slide[i - 1].style.transform = 'translate(0px, ' + (slide_diff / (diff * rateScale)) +
+                        'px' + ')';
+                    slide[i - 1].style.transform = 'scale(' + (((slide_diff / (diff * rateScale)) / 20) +
+                        0.95) + ')';
+                } else {
+                    slide[i - 1].style.transform = 'translate(0px, 0px)';
+                    slide[i - 1].style.transform = 'scale(1)';
+                    slide[i].style.transform = 'translate(0px, 0px)';
+                    slide[i].style.transform = 'scale(1)';
+                }
+            }
+
+        });
+
+
+
+        $(document).ready(function () {
+            scrollTop = $(window).scrollTop();
+            //$("html, body").animate({scrollTop: someValue});
+            $("html, body").animate({
+                scrollTop: scrollTop + 1
+            });
+        });
+
+
+        // var top_value = $('.sc-hPeUyl').outerHeight();
+        // $('.slider li.slide').css({
+        //     'top': top_value + "px"
+        // });
+    </script>
+</body>
+
+</html>
